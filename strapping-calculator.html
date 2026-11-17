@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PET / PP / Steel Strapping Tension &amp; Break Strength Calculator | FMFPAX Open Tools</title>
+  <meta name="description" content="Calculate required strapping breaking strength, working load per strap, tensioning force, and recommended PET/PP/steel strap dimensions from pallet weight and shock factor.">
+  <link rel="canonical" href="https://zengxiaocong007-commits.github.io/industrial-packaging-pipe-tools/strapping-calculator.html">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mark" href="index.html">FMFPAX Engineering Tools</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a class="active" href="strapping-calculator.html">Strapping Calculator</a>
+        <a href="pe-pipe-fusion-calculator.html">PE Pipe Fusion</a>
+        <a href="pipe-thread-chart.html">NPT / BSPT Chart</a>
+        <a href="manuals-index.html">Manuals Index</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>PET / PP / Steel Strapping Tension &amp; Break Strength Calculator</h1>
+      <p>Estimate minimum required strap breaking strength, safe working tension, and common strap dimensions for unitized cartons, pallets, and heavy bundles.</p>
+    </section>
+
+    <section class="card">
+      <h2>Input Parameters</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="weight">Cargo / Pallet Weight</label>
+          <input id="weight" type="number" min="1" step="10" value="800">
+        </div>
+        <div class="field">
+          <label for="unit">Weight Unit</label>
+          <select id="unit">
+            <option value="kg" selected>Kilograms (kg)</option>
+            <option value="lb">Pounds (lb)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="factor">Transport Shock / Safety Factor</label>
+          <select id="factor">
+            <option value="1.5">1.5x — Smooth / Static Storage</option>
+            <option value="2.0" selected>2.0x — Standard Road / Container Freight</option>
+            <option value="2.5">2.5x — Heavy Vibration / Export Handling</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="straps">Number of Straps Supporting Load</label>
+          <input id="straps" type="number" min="1" max="20" step="1" value="2">
+        </div>
+        <div class="field">
+          <label for="material">Strap Material</label>
+          <select id="material">
+            <option value="PP">Polypropylene (PP)</option>
+            <option value="PET" selected>Polyester (PET)</option>
+            <option value="CORD">Polyester Corded / Composite</option>
+            <option value="STEEL">Steel Strapping</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="joint">Seal / Weld Joint Efficiency (%)</label>
+          <select id="joint">
+            <option value="0.80">80% — Friction / Ultrasonic Weld</option>
+            <option value="0.75" selected>75% — Standard Heat / Seal Joint</option>
+            <option value="0.65">65% — Open / Crimp Seal</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div class="stat-box">
+          <div class="stat-label">Total Design Load</div>
+          <div class="stat-val" id="outDesignLoad">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Min Break Strength / Strap</div>
+          <div class="stat-val" id="outMinBreak">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Applied Tension Range</div>
+          <div class="stat-val" id="outTension">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Suggested Strap Size</div>
+          <div class="stat-val" id="outSize">-</div>
+        </div>
+      </div>
+
+      <div class="note-box" id="outAdvice">Adjust parameters above to inspect strapping sizing guidance.</div>
+    </section>
+
+    <section class="card">
+      <h2>Common Industrial Strap Benchmarks</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Typical Size (W &times; T)</th>
+            <th>Approx. Break Strength</th>
+            <th>Common Applications</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>PP (Polypropylene)</td><td>12 &times; 0.60 mm</td><td>110–140 kgf (1,080–1,370 N)</td><td>Cartons, light boxes, bundled print goods</td></tr>
+          <tr><td>PP (Heavy)</td><td>15.5 &times; 0.80 mm</td><td>210–250 kgf (2,060–2,450 N)</td><td>Medium pallet loads, general logistics</td></tr>
+          <tr><td>PET (Polyester)</td><td>15.5 &times; 0.80 mm</td><td>420–480 kgf (4,120–4,700 N)</td><td>Bricks, lumber, beverage pallets, heavy export</td></tr>
+          <tr><td>PET (Heavy Duty)</td><td>19 &times; 1.00 mm</td><td>720–850 kgf (7,060–8,340 N)</td><td>Metal coils, stone, heavy industrial skids</td></tr>
+          <tr><td>Steel</td><td>19 &times; 0.60 mm</td><td>950–1,150 kgf (9,310–11,270 N)</td><td>Rigid sharp-edge steel, pipe, hot-rolled loads</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="ref-box">
+      <h3>Related Equipment &amp; Documentation</h3>
+      <ul>
+        <li>Hosted platform: <a href="https://fmfpack.com/">FMFPAX</a> (<a href="https://fmfpack.com/">fmfpack.com</a>)</li>
+        <li>Line planning &amp; tooling: <a href="https://fmfpack.com/collections/packaging-machines">packaging and strapping machinery</a></li>
+        <li>Light desktop bundling: <a href="https://fmfpack.com/products/automatic-opp-tape-bundling-strapping-machine-banknote-vegetable-document-card-baler-currency-tying-machine-110v-220v">desktop OPP tape bundling &amp; strapping machine</a></li>
+        <li>Carton &amp; bag sealing: <a href="https://fmfpack.com/products/high-quality-manual-u-shape-sausage-clipper-clipping-machine-for-meat-packing-plastic-bag-sealing-with-one-box-u-type-clip">manual U-shape bag clipping &amp; sealing machine</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://fmfpack.com/">fmfpack.com</a>
+      <a href="https://fmfpack.com/de">fmfpack.com/de</a>
+      <a href="https://fmfpack.com/es">fmfpack.com/es</a>
+      <a href="https://fmfpack.com/pages/resources">FMFPAX Resources</a>
+      <a href="https://fmfpack.com/pages/packaging-solutions">FMFPAX Packaging Solutions</a>
+    </div>
+    <div>Advisory calculation only. Confirm strap tensile specs with your strap supplier and use edge protectors on sharp corners.</div>
+  </footer>
+
+  <script>
+    (function () {
+      const specs = {
+        PP: [
+          { minKgf: 0, label: "9 x 0.55 mm PP (~85 kgf)" },
+          { minKgf: 90, label: "12 x 0.60 mm PP (~130 kgf)" },
+          { minKgf: 140, label: "15.5 x 0.80 mm PP (~230 kgf)" },
+          { minKgf: 260, label: "Switch to 15.5 x 0.80 mm PET" }
+        ],
+        PET: [
+          { minKgf: 0, label: "12 x 0.60 mm PET (~240 kgf)" },
+          { minKgf: 250, label: "15.5 x 0.80 mm PET (~450 kgf)" },
+          { minKgf: 460, label: "16 x 0.90 mm PET (~560 kgf)" },
+          { minKgf: 580, label: "19 x 1.00 mm PET (~780 kgf)" },
+          { minKgf: 800, label: "Add straps or use Steel / 25 mm PET" }
+        ],
+        CORD: [
+          { minKgf: 0, label: "16 mm Corded PET (~450 kgf)" },
+          { minKgf: 460, label: "19 mm Heavy Corded (~750 kgf)" },
+          { minKgf: 760, label: "25 mm Composite Cord (~1,150 kgf)" }
+        ],
+        STEEL: [
+          { minKgf: 0, label: "16 x 0.50 mm Steel (~650 kgf)" },
+          { minKgf: 660, label: "19 x 0.60 mm Steel (~1,050 kgf)" },
+          { minKgf: 1060, label: "32 x 0.80 mm Heavy Steel (~2,200 kgf)" }
+        ]
+      };
+
+      function calc() {
+        const rawW = Math.max(1, parseFloat(document.getElementById("weight").value) || 0);
+        const unit = document.getElementById("unit").value;
+        const wKg = unit === "lb" ? rawW * 0.45359237 : rawW;
+        const factor = parseFloat(document.getElementById("factor").value) || 2.0;
+        const straps = Math.max(1, parseInt(document.getElementById("straps").value, 10) || 2);
+        const mat = document.getElementById("material").value;
+        const joint = parseFloat(document.getElementById("joint").value) || 0.75;
+
+        const designKgf = wKg * factor;
+        const minBreakKgf = (designKgf / straps) / joint;
+        const minBreakN = minBreakKgf * 9.80665;
+        const tensionLowN = minBreakN * 0.20;
+        const tensionHighN = minBreakN * 0.35;
+
+        const list = specs[mat];
+        let picked = list[0].label;
+        for (const item of list) {
+          if (minBreakKgf >= item.minKgf) picked = item.label;
+        }
+
+        document.getElementById("outDesignLoad").textContent = `${designKgf.toFixed(0)} kgf (${(designKgf * 9.80665).toFixed(0)} N)`;
+        document.getElementById("outMinBreak").textContent = `${minBreakKgf.toFixed(0)} kgf (${minBreakN.toFixed(0)} N)`;
+        document.getElementById("outTension").textContent = `${tensionLowN.toFixed(0)}–${tensionHighN.toFixed(0)} N`;
+        document.getElementById("outSize").textContent = picked;
+
+        const advise = minBreakKgf > 250 && mat === "PP"
+          ? "Notice: Required break strength per strap exceeds typical polypropylene limits. Consider PET strapping or increasing strap count."
+          : `Target strap tension is typically set to 20%–35% of break strength (${(tensionLowN / 9.80665).toFixed(0)}–${(tensionHighN / 9.80665).toFixed(0)} kgf) to absorb dynamic load shifts without crushing corners.`;
+        document.getElementById("outAdvice").textContent = advise;
+      }
+
+      ["weight", "unit", "factor", "straps", "material", "joint"].forEach(id => {
+        document.getElementById(id).addEventListener("input", calc);
+        document.getElementById(id).addEventListener("change", calc);
+      });
+      calc();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HDPE / PE Pipe Butt Fusion &amp; Electrofusion Prep Calculator | FMFPAX Open Tools</title>
+  <meta name="description" content="Calculate PE80 and PE100 pipe wall thickness, butt fusion bead height, heating soak time, changeover window, cooling time, hydraulic gauge pressure, and electrofusion oxide scraping depth.">
+  <link rel="canonical" href="https://zengxiaocong007-commits.github.io/industrial-packaging-pipe-tools/pe-pipe-fusion-calculator.html">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mark" href="index.html">FMFPAX Engineering Tools</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="strapping-calculator.html">Strapping Calculator</a>
+        <a class="active" href="pe-pipe-fusion-calculator.html">PE Pipe Fusion</a>
+        <a href="pipe-thread-chart.html">NPT / BSPT Chart</a>
+        <a href="manuals-index.html">Manuals Index</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>HDPE / PE Pipe Butt Fusion &amp; Electrofusion Prep Calculator</h1>
+      <p>Reference parameter estimator based on standard DVS 2207-1 guidelines for 20–400 mm PE80 and PE100 pipelines, including electrofusion oxide-layer removal tolerances.</p>
+    </section>
+
+    <section class="card">
+      <h2>Pipe &amp; Machine Inputs</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="od">Pipe Outside Diameter (OD, mm)</label>
+          <select id="od">
+            <option value="20">20 mm</option>
+            <option value="32">32 mm</option>
+            <option value="50">50 mm</option>
+            <option value="63">63 mm</option>
+            <option value="75">75 mm</option>
+            <option value="90">90 mm</option>
+            <option value="110" selected>110 mm</option>
+            <option value="160">160 mm</option>
+            <option value="200">200 mm</option>
+            <option value="250">250 mm</option>
+            <option value="315">315 mm</option>
+            <option value="400">400 mm</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sdr">Pipe SDR Class</label>
+          <select id="sdr">
+            <option value="9">SDR 9</option>
+            <option value="11" selected>SDR 11</option>
+            <option value="13.6">SDR 13.6</option>
+            <option value="17">SDR 17</option>
+            <option value="21">SDR 21</option>
+            <option value="26">SDR 26</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="grade">Resin Grade</label>
+          <select id="grade">
+            <option value="PE100" selected>PE100 (0.15 MPa interfacial)</option>
+            <option value="PE80">PE80 (0.15 MPa interfacial)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="area">Cylinder Effective Area (cm&sup2;, optional)</label>
+          <input id="area" type="number" min="1" max="100" step="0.5" value="12.5">
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div class="stat-box">
+          <div class="stat-label">Calculated Wall (e)</div>
+          <div class="stat-val" id="outWall">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Heater Plate Temp</div>
+          <div class="stat-val" id="outTemp">210–225 &deg;C</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Heat Soak Time (10&times;e)</div>
+          <div class="stat-val" id="outSoak">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Max Changeover Time</div>
+          <div class="stat-val" id="outChange">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Cooling Time Under Pressure</div>
+          <div class="stat-val" id="outCool">-</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Fusion Force &amp; Gauge</div>
+          <div class="stat-val" id="outPress">-</div>
+        </div>
+      </div>
+
+      <div class="note-box" id="outPrep"></div>
+    </section>
+
+    <section class="ref-box">
+      <h3>PE Pipe Prep &amp; Extrusion Tooling</h3>
+      <ul>
+        <li>Supplier portal: <a href="https://fmfpack.com/">FMFPAX</a> (<a href="https://fmfpack.com/">fmfpack.com</a>)</li>
+        <li>Workshop &amp; pipe tools: <a href="https://fmfpack.com/collections/industrial-tools">industrial pipe preparation tools</a></li>
+        <li>Large-diameter electrofusion prep: <a href="https://fmfpack.com/products/75-400mm-pe-pipe-mechanical-rotary-scraper-oxide-layer-remover-for-pe-ppr-gas-pipe-steel-wire-mesh-skeleton-pipe-deburring-tool">PE pipe mechanical rotary scraper 75-400mm</a></li>
+        <li>Small-diameter &amp; sheet repair: <a href="https://fmfpack.com/products/electric-pe-pipe-oxide-layer-scraper-20-110mm-options">electric PE pipe oxide scraper 20-110mm</a> &amp; <a href="https://fmfpack.com/products/handheld-plastic-extrusion-welder-hot-air-gun-pp-hdpe-ldpe-sheet-pipe-repair">handheld plastic extrusion welder</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://fmfpack.com/">fmfpack.com</a>
+      <a href="https://fmfpack.com/de">fmfpack.com/de</a>
+      <a href="https://fmfpack.com/es">fmfpack.com/es</a>
+      <a href="https://fmfpack.com/pages/resources">FMFPAX Resources</a>
+      <a href="https://fmfpack.com/pages/packaging-solutions">FMFPAX Packaging Solutions</a>
+    </div>
+    <div>Note: For hydraulic butt fusion machines, always add measured drag pressure (P_drag) to the theoretical gauge pressure before bead-up and fusion steps.</div>
+  </footer>
+
+  <script>
+    (function () {
+      function calc() {
+        const od = parseFloat(document.getElementById("od").value) || 110;
+        const sdr = parseFloat(document.getElementById("sdr").value) || 11;
+        const grade = document.getElementById("grade").value;
+        const cylAreaCm2 = Math.max(1, parseFloat(document.getElementById("area").value) || 12.5);
+
+        const wall = od / sdr;
+        const beadHeight = Math.max(0.5, 0.5 + 0.1 * wall);
+        const soakSec = Math.round(10 * wall);
+        const changeoverMax = Math.min(25, Math.max(4, Math.round(3 + 0.35 * wall)));
+        const coolMin = Math.max(3, Math.round(3 + 1.15 * wall));
+
+        // Annular fusion area in mm^2 -> cm^2; interfacial pressure ~ 0.15 N/mm^2 (MPa)
+        const areaMm2 = Math.PI * wall * (od - wall);
+        const forceN = areaMm2 * 0.15;
+        const gaugeBar = (forceN / (cylAreaCm2 * 100)) * 10; // 1 MPa = 10 bar
+
+        const tempRange = grade === "PE100" ? "215–225 °C" : "205–220 °C";
+        document.getElementById("outWall").textContent = `${wall.toFixed(1)} mm (bead ~${beadHeight.toFixed(1)} mm)`;
+        document.getElementById("outTemp").textContent = tempRange;
+        document.getElementById("outSoak").textContent = `${soakSec} sec`;
+        document.getElementById("outChange").textContent = `<= ${changeoverMax} sec`;
+        document.getElementById("outCool").textContent = `${coolMin} min`;
+        document.getElementById("outPress").textContent = `${(forceN / 1000).toFixed(2)} kN / ${gaugeBar.toFixed(1)} bar (+ drag)`;
+
+        const scraperTip = od >= 75
+          ? "Recommended 75–400 mm mechanical rotary scraper"
+          : "Recommended 20–110 mm sleeve/electric rotary scraper";
+        document.getElementById("outPrep").textContent =
+          `Electrofusion Oxide Removal Prep: Scrape 0.2–0.4 mm uniformly around the full fusion insertion zone, wipe with >96% isopropyl alcohol wipes, and avoid bare-hand contact. (${scraperTip}).`;
+      }
+
+      ["od", "sdr", "grade", "area"].forEach(id => {
+        document.getElementById(id).addEventListener("input", calc);
+        document.getElementById(id).addEventListener("change", calc);
+      });
+      calc();
+    })();
+  </script>
+</body>
+</html>

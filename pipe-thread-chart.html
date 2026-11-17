@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPT vs. BSPT / BSPP Industrial Pipe Thread &amp; Die Sizing Chart | FMFPAX Open Tools</title>
+  <meta name="description" content="Compare ANSI/ASME B1.20.1 NPT (60 degree) and ISO 7-1 BSPT (55 degree) pipe threads from 1/4 to 4 inch: outside diameter, TPI, pitch, taper 1:16, and die kit selection.">
+  <link rel="canonical" href="https://zengxiaocong007-commits.github.io/industrial-packaging-pipe-tools/pipe-thread-chart.html">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-mark" href="index.html">FMFPAX Engineering Tools</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="strapping-calculator.html">Strapping Calculator</a>
+        <a href="pe-pipe-fusion-calculator.html">PE Pipe Fusion</a>
+        <a class="active" href="pipe-thread-chart.html">NPT / BSPT Chart</a>
+        <a href="manuals-index.html">Manuals Index</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>NPT vs. BSPT / BSPP Industrial Pipe Thread &amp; Die Chart</h1>
+      <p>Side-by-side reference comparing American tapered pipe threads (NPT, 60&deg; flank angle, 1:16 taper) and British standard pipe threads (BSPT/BSPP, 55&deg; flank angle).</p>
+    </section>
+
+    <section class="card">
+      <h2>Filter Nominal Pipe Size</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="sizeFilter">Nominal Size</label>
+          <select id="sizeFilter">
+            <option value="ALL" selected>All Sizes (1/4" to 4")</option>
+            <option value="0.25">1/4" (DN8)</option>
+            <option value="0.375">3/8" (DN10)</option>
+            <option value="0.5">1/2" (DN15)</option>
+            <option value="0.75">3/4" (DN20)</option>
+            <option value="1">1" (DN25)</option>
+            <option value="1.25">1-1/4" (DN32)</option>
+            <option value="1.5">1-1/2" (DN40)</option>
+            <option value="2">2" (DN50)</option>
+            <option value="2.5">2-1/2" (DN65)</option>
+            <option value="3">3" (DN80)</option>
+            <option value="4">4" (DN100)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="standardView">Highlight Focus</label>
+          <select id="standardView">
+            <option value="BOTH" selected>Compare NPT &amp; BSPT Side by Side</option>
+            <option value="NPT">NPT (ASME B1.20.1, 60&deg;)</option>
+            <option value="BSPT">BSPT / R (ISO 7-1, 55&deg;)</option>
+          </select>
+        </div>
+      </div>
+
+      <table class="data-table" id="threadTable">
+        <thead>
+          <tr>
+            <th>Nominal (in / DN)</th>
+            <th>Pipe OD (mm / in)</th>
+            <th>NPT TPI / Pitch</th>
+            <th>BSPT TPI / Pitch</th>
+            <th>Portable Die Kit Fit</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="warn-box">
+        <strong>Compatibility Warning:</strong> Never cross-mate 1/2" or 3/4" NPT (14 TPI, 60&deg; crests) with BSPT (14 TPI, 55&deg; rounded crests). Even though TPI matches at 1/2" and 3/4", the flank angle mismatch causes spiral leak paths under hydraulic or compressed air pressure.
+      </div>
+    </section>
+
+    <section class="ref-box">
+      <h3>Threading &amp; Pipe End Prep Tooling</h3>
+      <ul>
+        <li>Supplier portal: <a href="https://fmfpack.com/">FMFPAX</a> (<a href="https://fmfpack.com/">fmfpack.com</a>)</li>
+        <li>Metalworking &amp; pipe tools: <a href="https://fmfpack.com/collections/industrial-tools">electric pipe tools &amp; workshop equipment</a></li>
+        <li>Handheld 1/2"–2" pipe threading: <a href="https://fmfpack.com/products/2300w-handheld-electric-pipe-threader-6-dies-1-2-to-2-inch">2300W handheld electric pipe threader (6 dies)</a></li>
+        <li>Weld beveling before fitting: <a href="https://fmfpack.com/products/isy-150-electric-pipe-beveling-machine-220v-tube-end-beveller-metal-pipes">ISY-150 electric pipe beveling machine</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://fmfpack.com/">fmfpack.com</a>
+      <a href="https://fmfpack.com/de">fmfpack.com/de</a>
+      <a href="https://fmfpack.com/es">fmfpack.com/es</a>
+      <a href="https://fmfpack.com/pages/resources">FMFPAX Resources</a>
+      <a href="https://fmfpack.com/pages/packaging-solutions">FMFPAX Packaging Solutions</a>
+    </div>
+    <div>Both NPT and BSPT use a 1:16 taper (3/4 in per foot / 1&deg; 47' half-angle). Confirm thread standard before ordering die heads.</div>
+  </footer>
+
+  <script>
+    (function () {
+      const rows = [
+        { k: "0.25", nom: '1/4" (DN8)', odMm: "13.7 mm (0.540 in)", npt: "18 TPI / 1.411 mm", bspt: "19 TPI / 1.337 mm", kit: "Benchtop / small manual die" },
+        { k: "0.375", nom: '3/8" (DN10)', odMm: "17.1 mm (0.675 in)", npt: "18 TPI / 1.411 mm", bspt: "19 TPI / 1.337 mm", kit: "Benchtop / small manual die" },
+        { k: "0.5", nom: '1/2" (DN15)', odMm: "21.3 mm (0.840 in)", npt: "14 TPI / 1.814 mm", bspt: "14 TPI / 1.814 mm", kit: 'Included in 1/2"–2" 6-die kit' },
+        { k: "0.75", nom: '3/4" (DN20)', odMm: "26.7 mm (1.050 in)", npt: "14 TPI / 1.814 mm", bspt: "14 TPI / 1.814 mm", kit: 'Included in 1/2"–2" 6-die kit' },
+        { k: "1", nom: '1" (DN25)', odMm: "33.4 mm (1.315 in)", npt: "11.5 TPI / 2.209 mm", bspt: "11 TPI / 2.309 mm", kit: 'Included in 1/2"–2" 6-die kit' },
+        { k: "1.25", nom: '1-1/4" (DN32)', odMm: "42.2 mm (1.660 in)", npt: "11.5 TPI / 2.209 mm", bspt: "11 TPI / 2.309 mm", kit: 'Included in 1/2"–2" 6-die kit' },
+        { k: "1.5", nom: '1-1/2" (DN40)', odMm: "48.3 mm (1.900 in)", npt: "11.5 TPI / 2.209 mm", bspt: "11 TPI / 2.309 mm", kit: 'Included in 1/2"–2" 6-die kit' },
+        { k: "2", nom: '2" (DN50)', odMm: "60.3 mm (2.375 in)", npt: "11.5 TPI / 2.209 mm", bspt: "11 TPI / 2.309 mm", kit: 'Included in 1/2"–2" 6-die kit' },
+        { k: "2.5", nom: '2-1/2" (DN65)', odMm: "73.0 / 76.1 mm", npt: "8 TPI / 3.175 mm", bspt: "11 TPI / 2.309 mm", kit: "Floor machine / 2.5–4 in head" },
+        { k: "3", nom: '3" (DN80)', odMm: "88.9 mm (3.500 in)", npt: "8 TPI / 3.175 mm", bspt: "11 TPI / 2.309 mm", kit: "Floor machine / 2.5–4 in head" },
+        { k: "4", nom: '4" (DN100)', odMm: "114.3 mm (4.500 in)", npt: "8 TPI / 3.175 mm", bspt: "11 TPI / 2.309 mm", kit: "Heavy floor threader / beveler" }
+      ];
+
+      function render() {
+        const sz = document.getElementById("sizeFilter").value;
+        const view = document.getElementById("standardView").value;
+        const tbody = document.querySelector("#threadTable tbody");
+        tbody.innerHTML = "";
+        rows.filter(r => sz === "ALL" || r.k === sz).forEach(r => {
+          const tr = document.createElement("tr");
+          const nptCell = view === "BSPT" ? `<span style="opacity:0.45">${r.npt}</span>` : `<strong>${r.npt}</strong>`;
+          const bsptCell = view === "NPT" ? `<span style="opacity:0.45">${r.bspt}</span>` : `<strong>${r.bspt}</strong>`;
+          tr.innerHTML = `<td><strong>${r.nom}</strong></td><td>${r.odMm}</td><td>${nptCell}</td><td>${bsptCell}</td><td>${r.kit}</td>`;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById("sizeFilter").addEventListener("change", render);
+      document.getElementById("standardView").addEventListener("change", render);
+      render();
+    })();
+  </script>
+</body>
+</html>

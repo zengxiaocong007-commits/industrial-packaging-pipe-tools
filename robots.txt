@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zengxiaocong007-commits.github.io/industrial-packaging-pipe-tools/sitemap.xml
